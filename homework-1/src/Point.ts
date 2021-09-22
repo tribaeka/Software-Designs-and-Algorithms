@@ -1,28 +1,19 @@
 export class Point {
-    public x: number;
-    public y: number;
-
-    constructor();
-    constructor(x?: number, y?: number) {
-        this.x = x || 0;
-        this.y = y || 0;
-    }
+    constructor(public x = 0, public y = 0) {}
 
     toString(): string {
         return `(${this.x}, ${this.y})`;
     }
 
-    distance(): number;
-    distance(x?: Point): number;
-    distance(x?: any, y?: number): number {
-        if (x && y) {
-            return this.calcDistance(x, y);
-        }
-
+    distance(x: Point | number, y?: number): number {
         if (x instanceof Point) {
             const otherPoint = x;
 
             return this.calcDistance(otherPoint.x, otherPoint.y);
+        }
+
+        if (x && y) {
+            return this.calcDistance(x, y);
         }
 
         return this.calcDistance(0, 0);

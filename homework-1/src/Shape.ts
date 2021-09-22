@@ -3,19 +3,14 @@ import { Point } from './Point';
 export const DEFAULT_COLOR = 'green';
 
 export abstract class Shape {
-    protected color: string;
-    protected filled: boolean;
-    protected points: Point[];
-
-    constructor(points: Point[]);
-    constructor(points: Point[], color?: string, filled?: boolean) {
+    constructor(
+        protected points: Point[],
+        protected color = DEFAULT_COLOR,
+        protected filled = true
+    ) {
         if (points.length < 3) {
             throw new Error('The shape should has at least 3 points');
         }
-
-        this.points = points;
-        this.color = color || DEFAULT_COLOR;
-        this.filled = typeof filled === 'undefined' ? true : filled;
     }
 
     abstract getType(): string;

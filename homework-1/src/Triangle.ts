@@ -1,13 +1,15 @@
-import { DEFAULT_COLOR, Shape } from './Shape';
+import { Shape } from './Shape';
 import { Point } from './Point';
 
 export class Triangle extends Shape {
-    constructor(firstPoint: Point, secondPoint: Point, thirdPoint: Point);
-    constructor(firstPoint: Point, secondPoint: Point, thirdPoint: Point, color?: string, filled?: boolean) {
-        super([firstPoint, secondPoint, thirdPoint]);
-
-        this.color = color || DEFAULT_COLOR;
-        this.filled = typeof filled === 'undefined' ? true : filled;
+    constructor(
+        firstPoint: Point,
+        secondPoint: Point,
+        thirdPoint: Point,
+        color: string,
+        filled: boolean
+    ) {
+        super([firstPoint, secondPoint, thirdPoint], color, filled);
     }
 
     toString(): string {
