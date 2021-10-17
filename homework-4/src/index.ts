@@ -9,7 +9,7 @@ const shipment = new Shipment({
     toAddress: 'toAddress',
     fromAddress: 'fromAddress',
     toZipCode: 'toZipCode',
-    fromZipCode: 'fromZipCode',
+    fromZipCode: '911',
     weight: 10,
 });
 

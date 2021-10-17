@@ -1,6 +1,8 @@
 import { IShipmentState } from './interfaces';
-
-const COST_MODIFICATION = 39;
+import { IShipper } from './interfaces/IShipper';
+import AirEastShipper from './shippers/AirEastShipper';
+import ChicagoSprintShipper from './shippers/ChicagoSprintShipper';
+import PacificParcelShipper from './shippers/PacificParcelShipper';
 
 export class Shipment {
     private static idCounter = 0;
@@ -71,12 +73,28 @@ export class Shipment {
     }
 
     public ship(): string {
-        return `Shipment ${this.state.shipmentId} was sent from ${this.state.fromAddress} to ${
-            this.state.toAddress
-        } and cost ${this.getCost()} dollars`;
+        const { shipmentId, fromAddress, toAddress, weight } = this.state;
+        const cost = this.getShipper().getCost(weight);
+
+        return `Shipment ${shipmentId} was sent from ${fromAddress} to ${toAddress} and cost ${cost} dollars`;
     }
 
-    private getCost(): number {
-        return Math.round(this.state.weight * COST_MODIFICATION * 100) / 100;
+    private getShipper(): IShipper {
+        switch (this.state.fromZipCode[0]) {
+            case '1':
+            case '2':
+            case '3':
+                return AirEastShipper;
+            case '4':
+            case '5':
+            case '6':
+                return ChicagoSprintShipper;
+            case '7':
+            case '8':
+            case '9':
+                return PacificParcelShipper;
+            default:
+                return AirEastShipper;
+        }
     }
 }
