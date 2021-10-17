@@ -1,6 +1,5 @@
 import { Gui } from './Gui';
-import { Shipment } from './Shipment';
-import { IShipmentState } from './interfaces';
+import { IShipment, IShipmentState } from './interfaces';
 
 export class Client {
     constructor(private gui: Gui) {
@@ -8,7 +7,7 @@ export class Client {
         this.gui.on('end', Client.onAfterShip);
     }
 
-    public onShip(shipment: Shipment): void {
+    public onShip(shipment: IShipment): void {
         const shipmentState = shipment.getState();
 
         this.gui.trigger('start', shipmentState);

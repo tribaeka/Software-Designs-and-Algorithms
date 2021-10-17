@@ -1,16 +1,17 @@
 import { Gui } from './Gui';
 import { Client } from './Client';
-import { Shipment } from './Shipment';
+import { ShipmentsFactory } from './shipments';
 
 const gui = new Gui();
 const client = new Client(gui);
-const shipment = new Shipment({
+const factory = new ShipmentsFactory();
+const letterShipment = factory.createShipment({
     shipmentId: 0,
     toAddress: 'toAddress',
     fromAddress: 'fromAddress',
     toZipCode: 'toZipCode',
-    fromZipCode: '911',
-    weight: 10,
+    fromZipCode: '511',
+    weight: 161,
 });
 
-client.onShip(shipment);
+client.onShip(letterShipment);
