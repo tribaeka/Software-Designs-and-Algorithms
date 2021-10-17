@@ -1,5 +1,6 @@
 import { Gui } from './Gui';
 import { IShipment, IShipmentState } from './interfaces';
+import { ShipmentMarkDecorator } from './shipments';
 
 export class Client {
     constructor(private gui: Gui) {
@@ -11,7 +12,7 @@ export class Client {
         const shipmentState = shipment.getState();
 
         this.gui.trigger('start', shipmentState);
-        console.log(shipment.ship());
+        console.log(this.gui.getIsMarksEnabled() ? new ShipmentMarkDecorator(shipment).ship() : shipment.ship());
         this.gui.trigger('end', shipmentState);
     }
 

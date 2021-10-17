@@ -1,7 +1,15 @@
 import { IEventItem, IShipmentState } from './interfaces';
 
 export class Gui {
-    private stack: IEventItem[] = [];
+    constructor(private stack: IEventItem[] = [], private isMarksEnabled = false) {}
+
+    public getIsMarksEnabled(): boolean {
+        return this.isMarksEnabled;
+    }
+
+    public toggleMarks(forcedState?: boolean): void {
+        this.isMarksEnabled = forcedState || !this.isMarksEnabled;
+    }
 
     public on(eventType: string, callback: (state: IShipmentState) => void): void {
         this.stack.push({ eventType, callback });

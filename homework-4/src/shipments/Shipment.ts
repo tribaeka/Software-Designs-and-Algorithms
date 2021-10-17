@@ -8,6 +8,12 @@ export enum ShipmentType {
     OVERSIZE,
 }
 
+export enum ShipmentMarks {
+    FRAGILE = 'FRAGILE',
+    DO_NOT_LEAVE = 'DO NOT LEAVE IF ADDRESS NOT AT HOME',
+    RETURN_RECEIPT_REQUESTED = 'RETURN RECEIPT REQUESTED',
+}
+
 export abstract class Shipment implements IShipment {
     private static idCounter = 0;
 
@@ -35,9 +41,10 @@ export abstract class Shipment implements IShipment {
         const { shipmentId, fromAddress, toAddress, weight } = this.state;
         const cost = this.shipper.getCost(weight);
 
-        return `Shipment ${shipmentId} was sent from ${fromAddress} to ${toAddress} ${
-            cost === 0 ? 'for free' : 'and cost ${cost} dollars'
-        }`;
+        return (
+            `Shipment with ID ${shipmentId} will be picked up from ${fromAddress} and shipped to ${toAddress}` +
+            `\n\nCost = ${cost === 0 ? 'free' : `${cost} dollars`}`
+        );
     }
 
     protected abstract initShipper(): void;
