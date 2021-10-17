@@ -10,11 +10,7 @@ export class Inventory {
     }
 
     public sort(comparator?: IItemComparator): void {
-        if (comparator) {
-            this.items = this.items.sort(comparator.compare);
-        } else {
-            this.items = sortBy(this.items, 'value');
-        }
+        this.items = comparator ? this.items.sort(comparator.compare) : sortBy(this.items, 'value');
     }
 
     public toString(): string {

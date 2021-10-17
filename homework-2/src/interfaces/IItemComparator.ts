@@ -1,4 +1,4 @@
-import { Item } from '../Item';
+import { Item } from '../game-components';
 import { IComparator } from './IComparator';
 
 export interface IItemComparator extends IComparator<Item> {
