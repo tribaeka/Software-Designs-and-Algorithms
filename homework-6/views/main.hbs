@@ -1,0 +1,12 @@
+<div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Convert to all currencies</label>
+</div>
+{{> tabs}}
+{{#if isTextFormEnabled}}
+    {{> textForm}}
+{{/if}}
+{{#if isSliderFormEnabled}}
+    {{> sliderForm}}
+{{/if}}
+
