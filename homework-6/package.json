@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "gulp cleanDest && tsc && gulp copyViews",
-    "start:server": "node dist/index.js"
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
