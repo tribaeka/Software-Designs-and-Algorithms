@@ -18,6 +18,8 @@ app.engine(
     }),
 );
 
+app.use(express.static(__dirname + '/controllers'));
+
 app.get('/', (req, res) => {
     res.redirect('/text');
 });
