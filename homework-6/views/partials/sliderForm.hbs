@@ -8,7 +8,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">
                                 {{this.title}} cost of 1 Euro&nbsp;
-                                <span class="exchange-rate-input-value-{{this.id}}">{{this.exchangeRate}}</span>
+                                <span class="exchange-rate-input-value-label-{{this.id}}">{{this.exchangeRate}}</span>
                             </span>
                         </div>
                         <input type="range"
@@ -26,12 +26,13 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">
                                 Euro&nbsp;
-                                <span class="euro-input-value-{{this.id}}">0</span>
+                                <span class="euro-input-value-label-{{this.id}}">0</span>
                             </span>
                         </div>
                         <input type="range"
                                min="0"
-                               max="10"
+                               max="1000"
+                               step="1"
                                class="form-control mx-3 euro-input-{{this.id}}"
                                value="0">
                     </div>
@@ -42,14 +43,14 @@
                             <span class="input-group-text"
                                   id="inputGroup-sizing-default">
                                 {{this.title}}&nbsp;
-                                <span class="currency-input-value-{{this.id}}">0</span>
+                                <span class="currency-input-value-label-{{this.id}}">0</span>
                             </span>
                         </div>
                         <input type="range"
                                min="0"
-                               max="10"
+                               max="1000"
                                class="form-control mx-3 disabled currency-input-{{this.id}}"
-                               aria-describedby="inputGroup-sizing-default"
+                               disabled
                                value="0">
                     </div>
                 </div>
