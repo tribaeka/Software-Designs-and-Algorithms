@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "target": "es5",
+    "lib": [
+      "es2015",
+      "dom",
+      "ES2018"
+    ],
+    "outDir": "./dist",
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "declaration": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "listEmittedFiles": false,
+    "importHelpers": true,
+    "noEmitHelpers": true,
+    "experimentalDecorators": true,
+    "rootDir": "."
+  },
+  "exclude": [
+    "node_modules",
+  ]
+}

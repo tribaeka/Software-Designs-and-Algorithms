@@ -1,0 +1,18 @@
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        {{#if isTextFormEnabled}}
+            <a class="nav-link active" href="/text">Text form</a>
+        {{/if}}
+        {{#unless isTextFormEnabled}}
+            <a class="nav-link" href="/text">Text form</a>
+        {{/unless}}
+    </li>
+    <li class="nav-item">
+        {{#if isSliderFormEnabled}}
+            <a class="nav-link active" href="/slider">Slider form</a>
+        {{/if}}
+        {{#unless isSliderFormEnabled}}
+            <a class="nav-link" href="/slider">Slider form</a>
+        {{/unless}}
+    </li>
+</ul>

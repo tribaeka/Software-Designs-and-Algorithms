@@ -1,0 +1,60 @@
+{{> syncInputsCheckbox}}
+<ul class="list-group my-2">
+    {{#each currencies}}
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                {{this.title}} cost of 1 Euro&nbsp;
+                                <span class="exchange-rate-input-value-label-{{this.id}}">{{this.exchangeRate}}</span>
+                            </span>
+                        </div>
+                        <input type="range"
+                               min="0"
+                               max="10"
+                               step="0.5"
+                               class="form-control mx-3 exchange-rate-input-{{this.id}}"
+                               value="{{this.exchangeRate}}">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                Euro&nbsp;
+                                <span class="euro-input-value-label-{{this.id}}">0</span>
+                            </span>
+                        </div>
+                        <input type="range"
+                               min="0"
+                               max="1000"
+                               step="1"
+                               class="form-control mx-3 euro-input-{{this.id}}"
+                               value="0">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"
+                                  id="inputGroup-sizing-default">
+                                {{this.title}}&nbsp;
+                                <span class="currency-input-value-label-{{this.id}}">0</span>
+                            </span>
+                        </div>
+                        <input type="range"
+                               min="0"
+                               max="1000"
+                               class="form-control mx-3 disabled currency-input-{{this.id}}"
+                               disabled
+                               value="0">
+                    </div>
+                </div>
+            </div>
+        </li>
+    {{/each}}
+</ul>

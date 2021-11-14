@@ -1,0 +1,49 @@
+{{> syncInputsCheckbox}}
+<ul class="list-group my-2">
+    {{#each currencies}}
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                {{this.title}} cost of 1 Euro
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control exchange-rate-input-{{this.id}}"
+                               value="{{this.exchangeRate}}">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                Euro
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control euro-input-{{this.id}}"
+                               value="0">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"
+                                  id="inputGroup-sizing-default">
+                                {{this.title}}
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control currency-input-{{this.id}}"
+                               disabled
+                               value="0">
+                    </div>
+                </div>
+            </div>
+        </li>
+    {{/each}}
+</ul>
